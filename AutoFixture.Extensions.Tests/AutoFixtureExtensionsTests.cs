@@ -4,7 +4,6 @@ using System.Text;
 using AutoFixture.Extensions.Converters;
 using Ploeh.AutoFixture;
 using Xunit;
-using Xunit.Sdk;
 
 namespace AutoFixture.Extensions.Tests
 {
