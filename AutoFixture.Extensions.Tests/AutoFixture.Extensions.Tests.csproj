@@ -67,5 +67,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFixture.Extensions\AutoFixture.Extensions.csproj">
+      <Project>{189af42b-4f91-4066-946b-b654141561ae}</Project>
+      <Name>AutoFixture.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
