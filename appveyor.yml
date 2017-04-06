@@ -23,3 +23,5 @@ deploy:
     api_key:
       secure: NiEHpwU2P6o26pf83cJDf+tqPQAJNdOP8PrXvMfQrIQHRbI0uk48aftgyfIqh1mh
     artifact: /.*\.nupkg/
+    on:
+      branch: master
