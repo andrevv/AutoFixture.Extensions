@@ -10,6 +10,9 @@ configuration: Release
 
 before_build:
  - nuget restore
-
-artifacts:
-  - path: AutoFixture.Extensions\bin\$(configuration)\*.dll
+ 
+build:
+  parallel: true                  # enable MSBuild parallel builds
+  publish_nuget: true             # package projects with .nuspec files and push to artifacts
+  publish_nuget_symbols: true     # generate and publish NuGet symbol packages
+  include_nuget_references: true  # add -IncludeReferencedProjects option while packaging NuGet artifacts
