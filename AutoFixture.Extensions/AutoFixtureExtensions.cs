@@ -32,9 +32,10 @@ namespace AutoFixture.Extensions
             return composer.With(propertyPicker, Convert<TValue, TProperty>(value));
         }
 
-        public static void Extend(this IFixture fixture, Type source, Type target, IValueConverter converter)
+        public static IFixture Extend(this IFixture fixture, Type source, Type target, IValueConverter converter)
         {
             Converters[GetConverterKey(source, target)] = converter;
+            return fixture;
         }
 
         private static TTarget Convert<TSource, TTarget>(TSource value)
