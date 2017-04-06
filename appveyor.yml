@@ -10,3 +10,6 @@ configuration: Release
 
 before_build:
  - nuget restore
+
+artifacts:
+  - path: AutoFixture.Extensions\bin\$(configuration)\*.dll
