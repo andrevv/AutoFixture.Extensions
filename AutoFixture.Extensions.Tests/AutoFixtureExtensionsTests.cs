@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
+using AutoFixture.Extensions.Converters;
 using Ploeh.AutoFixture;
 using Xunit;
+using Xunit.Sdk;
 
 namespace AutoFixture.Extensions.Tests
 {
@@ -104,10 +106,39 @@ namespace AutoFixture.Extensions.Tests
                 ex.Message);
         }
 
+        [Fact]
+        public void ExtendConversionTest()
+        {
+            // arrange
+            var src = _fixture.Create<Complex>();
+
+            // act
+            var obj = _fixture.Extend(typeof(Complex), typeof(string), new ComplexToStringConverter())
+                .Build<Target>()
+                .With(x => x.String, src)
+                .Create();
+
+            // assert
+            Assert.Equal(src.Number.ToString(), obj.String);
+        }
+
+        private class Complex
+        {
+            public int Number { get; set; }
+        }
+
         private class Target
         {
             public string String { get; set; }
             public byte[] Bytes { get; set; }
+        }
+
+        private class ComplexToStringConverter : ValueConverter<Complex, string>
+        {
+            protected override string Convert(Complex value)
+            {
+                return value.Number.ToString();
+            }
         }
     }
 }
