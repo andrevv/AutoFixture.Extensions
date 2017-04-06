@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoFixture.Extensions.Converters;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Dsl;
 
@@ -14,6 +15,10 @@ namespace AutoFixture.Extensions
         private static readonly IDictionary<string, IValueConverter> Converters =
             new Dictionary<string, IValueConverter>
             {
+                {GetConverterKey(typeof(int), typeof(string)), new ObjectToStringConverter()},
+                {GetConverterKey(typeof(long), typeof(string)), new ObjectToStringConverter()},
+                {GetConverterKey(typeof(float), typeof(string)), new ObjectToStringConverter()},
+                {GetConverterKey(typeof(double), typeof(string)), new ObjectToStringConverter()},
                 {GetConverterKey(typeof(string), typeof(byte[])), new Utf8StringToByteArrayConverter()}
             };
 
@@ -34,10 +39,9 @@ namespace AutoFixture.Extensions
         private static TTarget Convert<TSource, TTarget>(TSource value)
             where TTarget : class
         {
-            var target = value as TTarget;
-            if (target != null)
+            if (value is TTarget)
             {
-                return target;
+                return value as TTarget;
             }
 
             var key = GetConverterKey(typeof(TSource), typeof(TTarget));

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AutoFixture.Extensions
+namespace AutoFixture.Extensions.Converters
 {
     public class Utf8StringToByteArrayConverter : ValueConverter<string, byte[]>
     {

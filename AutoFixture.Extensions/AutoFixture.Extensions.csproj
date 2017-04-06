@@ -45,10 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoFixtureExtensions.cs" />
-    <Compile Include="IValueConverter.cs" />
+    <Compile Include="Converters\ObjectToStringConverter.cs" />
+    <Compile Include="Converters\IValueConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utf8StringToByteArrayConverter.cs" />
-    <Compile Include="ValueConverter.cs" />
+    <Compile Include="Converters\Utf8StringToByteArrayConverter.cs" />
+    <Compile Include="Converters\ValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

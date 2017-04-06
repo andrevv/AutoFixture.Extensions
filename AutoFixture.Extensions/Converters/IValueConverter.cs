@@ -1,4 +1,4 @@
-﻿namespace AutoFixture.Extensions
+﻿namespace AutoFixture.Extensions.Converters
 {
     public interface IValueConverter
     {

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Extensions", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Extensions.Json", "AutoFixture.Extensions.Json\AutoFixture.Extensions.Json.csproj", "{9CEEF280-547E-4BA7-AB71-C5FB2A8A5C17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Extensions.Tests", "AutoFixture.Extensions.Tests\AutoFixture.Extensions.Tests.csproj", "{C16F6106-6CCF-441A-A53D-105A8DDE56DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9CEEF280-547E-4BA7-AB71-C5FB2A8A5C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CEEF280-547E-4BA7-AB71-C5FB2A8A5C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CEEF280-547E-4BA7-AB71-C5FB2A8A5C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C16F6106-6CCF-441A-A53D-105A8DDE56DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C16F6106-6CCF-441A-A53D-105A8DDE56DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C16F6106-6CCF-441A-A53D-105A8DDE56DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C16F6106-6CCF-441A-A53D-105A8DDE56DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,21 +1,26 @@
 ﻿using System;
 
-namespace AutoFixture.Extensions
+namespace AutoFixture.Extensions.Converters
 {
     public abstract class ValueConverter<TSource, TTarget> : IValueConverter
-        where TSource : class
-        where TTarget : class
     {
-        public object Convert(object value)
+        public virtual object Convert(object value)
         {
-            var sourceValue = value as TSource;
-            if (sourceValue == null)
+            var sourceType = typeof(TSource);
+            var targetType = typeof(TTarget);
+
+            if (sourceType == targetType)
+            {
+                return value;
+            }
+
+            if (value.GetType() != sourceType)
             {
                 throw new ArgumentException(
                     $"Argument of type {typeof(TSource).FullName} was expected, but {value.GetType().FullName} was received.");
             }
 
-            return Convert(sourceValue);
+            return Convert((TSource) value);
         }
 
         protected abstract TTarget Convert(TSource value);
