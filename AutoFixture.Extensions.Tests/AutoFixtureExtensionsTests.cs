@@ -76,7 +76,7 @@ namespace AutoFixture.Extensions.Tests
         }
 
         [Fact]
-        public void StringToByteArrayConversionTest()
+        public void Utf8StringToByteArrayConversionTest()
         {
             // arrange
             var str = _fixture.Create<string>();

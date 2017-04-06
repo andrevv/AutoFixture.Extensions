@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Text;
 using AutoFixture.Extensions.Converters;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Dsl;
@@ -19,7 +20,7 @@ namespace AutoFixture.Extensions
                 {GetConverterKey(typeof(long), typeof(string)), new ObjectToStringConverter()},
                 {GetConverterKey(typeof(float), typeof(string)), new ObjectToStringConverter()},
                 {GetConverterKey(typeof(double), typeof(string)), new ObjectToStringConverter()},
-                {GetConverterKey(typeof(string), typeof(byte[])), new Utf8StringToByteArrayConverter()}
+                {GetConverterKey(typeof(string), typeof(byte[])), new StringToByteArrayConverter(Encoding.UTF8)}
             };
 
         public static IPostprocessComposer<T> With<T, TProperty, TValue>(
