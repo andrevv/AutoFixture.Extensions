@@ -12,7 +12,14 @@ before_build:
  - nuget restore
  
 build:
-  parallel: true                  # enable MSBuild parallel builds
-  publish_nuget: true             # package projects with .nuspec files and push to artifacts
-  publish_nuget_symbols: true     # generate and publish NuGet symbol packages
-  include_nuget_references: true  # add -IncludeReferencedProjects option while packaging NuGet artifacts
+  parallel: true
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+
+deploy:
+  - provider: NuGet
+    server: https://www.nuget.org/api/v2/package
+    api_key:
+      secure: 796b3bdb-2550-48f1-b20a-680ed91a4618
+    artifact: AutoFixture.Extensions.{version}.nupkg
