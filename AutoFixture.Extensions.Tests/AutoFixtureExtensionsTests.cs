@@ -121,6 +121,21 @@ namespace AutoFixture.Extensions.Tests
             Assert.Equal(src.Number.ToString(), obj.String);
         }
 
+        [Fact]
+        public void StringToInt32ConversionTest()
+        {
+            // arrange
+            var str = _fixture.Create<int>().ToString();
+
+            // act
+            var obj = _fixture.Build<Target>()
+                .With(x => x.Int32, str)
+                .Create();
+
+            // assert
+            Assert.Equal(int.Parse(str), obj.Int32);
+        }
+
         private class Complex
         {
             public int Number { get; set; }
@@ -128,6 +143,7 @@ namespace AutoFixture.Extensions.Tests
 
         private class Target
         {
+            public int Int32 { get; set; }
             public string String { get; set; }
             public byte[] Bytes { get; set; }
         }

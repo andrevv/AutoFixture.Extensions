@@ -20,14 +20,14 @@ namespace AutoFixture.Extensions
                 {GetConverterKey(typeof(long), typeof(string)), new ObjectToStringConverter()},
                 {GetConverterKey(typeof(float), typeof(string)), new ObjectToStringConverter()},
                 {GetConverterKey(typeof(double), typeof(string)), new ObjectToStringConverter()},
-                {GetConverterKey(typeof(string), typeof(byte[])), new StringToByteArrayConverter(Encoding.UTF8)}
+                {GetConverterKey(typeof(string), typeof(byte[])), new StringToByteArrayConverter(Encoding.UTF8)},
+                {GetConverterKey(typeof(string), typeof(int)), new StringToInt32Converter()}
             };
 
         public static IPostprocessComposer<T> With<T, TProperty, TValue>(
             this IPostprocessComposer<T> composer,
             Expression<Func<T, TProperty>> propertyPicker,
             TValue value)
-            where TProperty : class
         {
             return composer.With(propertyPicker, Convert<TValue, TProperty>(value));
         }
@@ -39,11 +39,13 @@ namespace AutoFixture.Extensions
         }
 
         private static TTarget Convert<TSource, TTarget>(TSource value)
-            where TTarget : class
         {
-            if (value is TTarget)
+            var sourceType = typeof(TSource);
+            var targetType = typeof(TTarget);
+
+            if (sourceType == targetType)
             {
-                return value as TTarget;
+                return (TTarget)(object)value;
             }
 
             var key = GetConverterKey(typeof(TSource), typeof(TTarget));
