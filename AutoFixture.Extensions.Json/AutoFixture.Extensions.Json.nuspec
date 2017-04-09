@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AutoFixture.Extensions.Json</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>andrevv</authors>
+    <owners>andrevv</owners>
+    <projectUrl>https://github.com/andrevv/AutoFixture.Extensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extensions for AutoFixture</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>AutoFixture UnitTest JSON</tags>
+  </metadata>
+</package>
