@@ -38,16 +38,13 @@ namespace AutoFixture.Extensions.Json
 
         private static string Serialize<T>(T value)
         {
-            var builder = new StringBuilder();
-            using (var stringWriter = new StringWriter(builder))
-            using (var textWriter = new JsonTextWriter(stringWriter))
+            using (var textWriter = new StringWriter())
             {
                 var key = GetSerializerKey(typeof(T));
                 var serializer = Serializers[Serializers.ContainsKey(key) ? key : Default];
                 serializer.Serialize(textWriter, value);
+                return textWriter.GetStringBuilder().ToString();
             }
-
-            return builder.ToString();
         }
     }
 }
