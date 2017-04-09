@@ -15,7 +15,7 @@ namespace AutoFixture.Extensions.Json.Tests
         }
 
         [Fact]
-        public void StringToJsonConversion()
+        public void JsonTest()
         {
             // arrange
             var source = _fixture.Create<Source>();
