@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq.Expressions;
-using System.Text;
 using Newtonsoft.Json;
 using Ploeh.AutoFixture;
 using Ploeh.AutoFixture.Dsl;
@@ -26,7 +25,6 @@ namespace AutoFixture.Extensions.Json
             this IPostprocessComposer<T> composer,
             Expression<Func<T, TProperty>> propertyPicker,
             TValue value)
-            where TProperty : class
         {
             return composer.With(propertyPicker, Serialize(value));
         }
