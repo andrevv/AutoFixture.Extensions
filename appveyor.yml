@@ -1,3 +1,8 @@
+environment:
+  sign: true
+  password:
+    secure: WYxOjz/of2o3d19Bqz4YG8fv+dTJCkgisYAqrFeA30I=
+
 version: '0.1.{build}'
 
 assembly_info:
@@ -7,6 +12,10 @@ assembly_info:
   assembly_file_version: '{version}'
 
 configuration: Release
+
+install:
+  - nuget install secure-file -ExcludeVersion
+  - secure-file\tools\secure-file -decrypt key.snk.enc -secret %password%
 
 before_build:
  - nuget restore
