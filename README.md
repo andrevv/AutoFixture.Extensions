@@ -26,6 +26,25 @@ var foo = new Fixture()
   .Create();
 ```
 
+### Json<T, TProperty, TValue>()
+
+Converts parameter of type TValue to a property of type TProperty using JSON serialization. It uses With() extension method, and since JSON is basically a string, corresponding value converter between string type and TProperty type has to be registered. Although, if TProperty is a string type, no extra converter is needed.
+
+```csharp
+public class Foo { }
+public class Bar
+{
+  public string Json { get; set; }
+}
+
+var foo = new Foo();
+
+var bar = new Fixture()
+  .Build<Bar>()
+  .Json(x => x.Json, foo)
+  .Create();
+```
+
 ### Extend(this IFixture fixture, Type source, Type target, IValueConverter converter)
 
 Registers converter between a source and target types.
